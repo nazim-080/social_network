@@ -1,0 +1,36 @@
+services:
+
+  # The ylab_cv_constructor
+  web:
+    build:
+      context: .
+    volumes:
+      - static-data:/ylab_cv_constructor/static
+      - media-data:/ylab_cv_constructor/media
+    env_file:
+      - .env
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - 8000:8000
+    expose:
+      - 8000
+    depends_on:
+      - db
+
+  # Database
+  db:
+    image: postgres:14.2-alpine
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - 5432:5432
+
+
+volumes:
+  postgres-data:
+  static-data:
+  media-data:
