@@ -302,7 +302,7 @@ python manage.py createsuperuser
 
 ### Лайкнуть пост
 
-**URL** : `/api/posts/<pk>/like`
+**URL** : `/api/posts/<pk>/like/`
 
 **Method** : `GET`
 
@@ -326,7 +326,7 @@ python manage.py createsuperuser
 
 ### Убрать лайк
 
-**URL** : `/api/posts/<pk>/like`
+**URL** : `/api/posts/<pk>/unlike/`
 
 **Method** : `GET`
 
