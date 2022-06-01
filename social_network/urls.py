@@ -23,7 +23,7 @@ from rest_framework_simplejwt.views import (
 )
 
 from api.views import PostViewSet
-from custom_user.views import RegisterView
+from custom_user.views import RegisterView, LogoutView
 
 router = routers.SimpleRouter()
 router.register(r"posts", PostViewSet)
@@ -35,4 +35,5 @@ urlpatterns = [
     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
     path("api/token/verify/", TokenVerifyView.as_view(), name="token_verify"),
     path("api/register/", RegisterView.as_view(), name="register"),
+    path("api/logout/", LogoutView.as_view())
 ]
